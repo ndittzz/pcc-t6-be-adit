@@ -1,0 +1,26 @@
+### Tampilkan semua notes
+GET http://localhost:5000/notes
+
+### Tampilkan notes berdasarkan id
+GET http://localhost:5000/notes/100
+
+### Tambahkan notes
+POST http://localhost:5000/tambah-notes
+Content-Type: application/json
+
+{
+    "judul": "Pentingnya Pendidikan Karakter",
+    "deskripsi": "Pendidikan karakter sangat penting untuk membentuk kepribadian dan moral siswa.",
+    "author": "Adit"
+}
+
+### Update notes
+PUT http://localhost:5000/update-notes/2
+Content-Type: application/json
+
+{
+    "Author": "Aditiya"
+}
+
+### Hapus notes
+DELETE http://localhost:5000/delete-notes/2
