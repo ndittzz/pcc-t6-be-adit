@@ -1,5 +1,10 @@
-### Tampilkan semua notes
-GET http://localhost:5000/notes
+### REGISTER
+POST http://localhost:5000/user/register 
+Content-Type: application/json
+
+{
+"username": "rrah", "password":"rrah", "fullName": "Rrraah"
+}
 
 ### Tampilkan notes berdasarkan id
 GET http://localhost:5000/notes/100
