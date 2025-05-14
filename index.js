@@ -53,17 +53,22 @@ app.use((req, res) => {
 });
 
 // Database associations and server start
-import association from './utils/dbAssoc.js';
-const PORT = process.env.PORT || 5000;
+// import association from './utils/dbAssoc.js';
+// const PORT = process.env.PORT || 5000;
 
-association()
-    .then(() => {
-        app.listen(PORT, () => {
-            console.log(`Connected to DB and server is running on port ${PORT}`);
-            console.log(`'https://app-adit-dot-a-11-450504.uc.r.appspot.com' || 'http://localhost:5000'}`);
-        });
-    })
-    .catch((err) => {
-        console.error('Failed to start server:', err.message);
-        process.exit(1);
-    });
+// association()
+//     .then(() => {
+//         app.listen(PORT, () => {
+//             console.log(`Connected to DB and server is running on port ${PORT}`);
+//             console.log(`'https://app-adit-dot-a-11-450504.uc.r.appspot.com' || 'http://localhost:5000'}`);
+//         });
+//     })
+//     .catch((err) => {
+//         console.error('Failed to start server:', err.message);
+//         process.exit(1);
+//     });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Connected to DB and server is running on port ${PORT}`);
+});
