@@ -49,7 +49,7 @@ const postUser = async (req, res) => {
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             sameSite: "none",
-            secure: true,
+            secure: false,
             maxAge: 24 * 60 * 60 * 1000,
         });
 
@@ -113,7 +113,7 @@ const loginHandler = async (req, res) => {
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             sameSite: "none",
-            secure: true,
+            secure: false,
             maxAge: 24 * 60 * 60 * 1000,
         });
 
@@ -154,7 +154,7 @@ const logoutHandler = async (req, res) => {
         res.clearCookie("refreshToken", {
             httpOnly: true,
             sameSite: "none",
-            secure: true,
+            secure: false,
         });
 
         return res.status(200).json({
@@ -198,7 +198,7 @@ const deleteUser = async (req, res) => {
         res.clearCookie("refreshToken", {
             httpOnly: true,
             sameSite: "none",
-            secure: true,
+            secure: false,
         });
 
         res.status(200).json({
