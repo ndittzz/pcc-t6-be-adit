@@ -6,8 +6,10 @@ export const getNotes = async (req, res) => {
         const data = await notes.findAll();
         res.status(200).json(data);
     } catch (error) {
-        console.log(error.message);
-    }
+    console.log(error.message);
+    return res.status(500).json({ message: "Terjadi kesalahan server" });
+}
+
 };
 
 //function ngambil data berdasarkan id

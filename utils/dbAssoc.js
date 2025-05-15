@@ -1,10 +1,4 @@
 import sequelize from "../config/database.js";
-import User from '../model/UsersModel.js';
-import Note from '../model/notesmodel.js';
-
-// Relasi
-User.hasMany(Note, { foreignKey: 'userId' });
-Note.belongsTo(User, { foreignKey: 'userId' });
 
 // Fungsi sinkronisasi database
 const association = async () => {
