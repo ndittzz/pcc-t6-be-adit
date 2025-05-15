@@ -5,10 +5,17 @@ Content-Type: application/json
 {
 "username": "adit1", "password":"aditiya", "fullName": "Rrraah"
 }
+###pake yang ini
+POST https://backend-adit-377407893329.us-central1.run.app/api/user/register
+Content-Type: application/json
 
+{
+"username": "mohamad risqi", "password":"mohamad risqi", "fullName": "aditiya"
+}
 ### LOGIN
-DELETE http://localhost:5000/api/user/delete/3
-Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhZGl0MSIsImZ1bGxOYW1lIjoiUnJyYWFoIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xNFQxOTowNTozMy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xNFQxOTowNTozMy4wMDBaIiwiaWF0IjoxNzQ3Mjc1MzYzLCJleHAiOjE3NDcyNzcxNjN9.Ca2Gh1JhIHIThOH5BYTRmmGzWn1gaKE1bM74rlcsYtI>
+POST https://backend-adit-377407893329.us-central1.run.app/api/user/logout
+Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJtb2hhbWFkIHJpc3FpIiwiZnVsbE5hbWUiOiJhZGl0aXlhIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xNVQwMjozNjo1MS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xNVQwMjozNjo1MS4wMDBaIiwiaWF0IjoxNzQ3Mjc2ODk1LCJleHAiOjE3NDcyNzg2OTV9.MQxNxvLZkUGp8J573A5iHrKNUbbaU58d5wKQq3tGOPc
+
 
 ###edit
 PUT http://localhost:5000/api/user/edit

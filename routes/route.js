@@ -4,8 +4,8 @@ import { getNotes, getNotesById,createNotes, updateNotes, deleteNotes} from "../
 
 const router = express.Router();
 
-router.get("/notes", verifyToken, getNotes);
-router.get("/notes/:id",verifyToken, getNotesById);
+router.get("/all", verifyToken, getNotes);
+router.get("/all/:id",verifyToken, getNotesById);
 router.post("/tambah-notes",verifyToken, createNotes);
 router.put("/update-notes/:id",verifyToken, updateNotes);
 router.delete("/delete-notes/:id",verifyToken, deleteNotes);
