@@ -11,16 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // CORS Configuration
-app.use(cors({
+const corsOptions = {
   origin: 'https://app-adit-dot-a-11-450504.uc.r.appspot.com',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  exposedHeaders: ['Authorization']
-}));
+  credentials: true
+};
 
-// Handle Preflight (OPTIONS)
-app.options('*', cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // ini yang benar
+
 
 // Import Routers
 import userRouter from "./routes/user.js";
