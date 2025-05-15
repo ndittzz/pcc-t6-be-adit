@@ -60,7 +60,7 @@ association()
     .then(() => {
         app.listen(PORT, () => {
             console.log(`Connected to DB and server is running on port ${PORT}`);
-            console.log(`'https://app-adit-dot-a-11-450504.uc.r.appspot.com' || 'http://localhost:5000'}`);
+            console.log(`'https://app-adit-dot-a-11-450504.uc.r.appspot.com' || 'http://localhost:5000' || 'http://127.0.0.1:5500'}`);
         });
     })
     .catch((err) => {
