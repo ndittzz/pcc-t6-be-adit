@@ -30,8 +30,13 @@ const postUser = async (req, res) => {
         });
 
         // generate jwt tokens
+        // Di loginHandler dan postUser, gunakan format payload yang sama:
         const accessToken = jwt.sign(
-            { userId: newUser.id, username: newUser.username },
+            {
+                id: newUser.id, // Konsisten gunakan 'id' bukan 'userId'
+                username: newUser.username,
+                fullName: newUser.fullName
+            },
             process.env.ACCESS_SECRET_KEY,
             { expiresIn: "30m" }
         );

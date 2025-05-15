@@ -13,19 +13,15 @@ import {
 // ENDPOINT TOKEN REFRESH
 router.get('/refresh', refreshToken);
 
-// REGISTER NEW USER (EVERYBODY CAN SIGN UP)
+// REGISTER NEW USER (Tidak perlu auth)
 router.post('/register', postUser);
 
-// USER LOGIN
+// USER LOGIN (Tidak perlu auth)
 router.post('/login', loginHandler);
 
-// USER LOGOUT
+// Endpoint berikut membutuhkan auth
 router.post('/logout', verifyToken, logoutHandler);
-
-// DELETE USER ACCOUNT
 router.delete('/delete/:id', verifyToken, deleteUser);
-
-// EDIT USER ACCOUNT
 router.put('/edit', verifyToken, editUser);
 
 export default router;

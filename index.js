@@ -12,12 +12,17 @@ app.use(cookieParser());
 
 // CORS Configuration
 const corsOptions = {
-  origin: 'https://app-adit-dot-a-11-450504.uc.r.appspot.com',
-  credentials: true
+  origin: [
+    'https://app-adit-dot-a-11-450504.uc.r.appspot.com',
+    'http://localhost:5500', // Untuk development
+    'http://127.0.0.1:5500' // Untuk development
+  ],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // ini yang benar
+app.options('*', cors(corsOptions));
 
 
 // Import Routers

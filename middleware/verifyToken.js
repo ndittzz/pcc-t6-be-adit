@@ -5,28 +5,19 @@ import User from "../model/UsersModel.js";
 
 const verifyToken = async (req, res, next) => {
     try {
-        const authHeader = req.headers['authorization'];
-
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return res.status(401).json({
-                status: "error",
-                message: "Unauthorized: No token provided"
-            });
+        const authHeader = req.headers['authorization'] || req.headers['Authorization'];
+        if (!authHeader?.startsWith('Bearer ')) {
+            return res.status(401).json({ message: "Unauthorized" });
         }
 
         const token = authHeader.split(' ')[1];
         const decoded = jwt.verify(token, process.env.ACCESS_SECRET_KEY);
-
+        
         const user = await User.findByPk(decoded.id, {
             attributes: ['id', 'username', 'fullName']
         });
 
-        if (!user) {
-            return res.status(401).json({
-                status: "error",
-                message: "Unauthorized: User no longer exists"
-            });
-        }
+        if (!user) return res.status(401).json({ message: "Unauthorized" });
 
         req.user = {
             id: user.id,
@@ -34,24 +25,15 @@ const verifyToken = async (req, res, next) => {
             fullName: user.fullName
         };
 
-        return next();
+        next();
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
-            return res.status(401).json({
-                status: "error",
-                message: "Unauthorized: Token expired"
-            });
-        } else if (error.name === 'JsonWebTokenError') {
-            return res.status(401).json({
-                status: "error",
-                message: "Unauthorized: Invalid token"
+            return res.status(401).json({ 
+                message: "Token expired",
+                shouldRefresh: true
             });
         }
-
-        return res.status(500).json({
-            status: "error",
-            message: "Internal server error during authentication"
-        });
+        return res.status(401).json({ message: "Unauthorized" });
     }
 };
 
