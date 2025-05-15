@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// CORS Configuration
+// CORS conf
 const corsOptions = {
   origin: [
     'https://app-adit-dot-a-11-450504.uc.r.appspot.com',
